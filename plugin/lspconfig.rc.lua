@@ -13,6 +13,26 @@ local on_attach = function(client, bufnr)
   end
 end
 
+-- Dartls
+nvim_lsp.dartls.setup {
+  on_attach = on_attach,
+  cmd = { "dart", "language-server", "--protocol=lsp" },
+  filetypes = { "dart" },
+  init_options = {
+    closingLabels = true,
+    flutterOutline = true,
+    onlyAnalyzeProjectsWithOpenFiles = true,
+    outline = true,
+    suggestFromUnimportedLibraries = true
+  },
+  settings = {
+    dart = {
+      completeFunctionCalls = true,
+      showTodos = true
+    }
+  }
+}
+
 -- Php
 nvim_lsp.intelephense.setup {
   on_attach = on_attach,
@@ -25,6 +45,22 @@ nvim_lsp.tsserver.setup {
   on_attach = on_attach,
   cmd = { "typescript-language-server", "--stdio" },
   filetypes = { "javascript", "javscriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" }
+}
+
+-- Pyright
+nvim_lsp.pyright.setup {
+  on_attach = on_attach,
+  cmd = { "pyright-langserver", "--stdio" },
+  filetypes = { "python" },
+  settings = {
+    python = {
+      analysis = {
+        autoSearchPaths = true,
+        diagnosticsMode = "workspace",
+        useLibraryCodeForTypes = true
+      }
+    }
+  }
 }
 
 -- Lua configuration
