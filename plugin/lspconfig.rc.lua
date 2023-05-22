@@ -13,20 +13,11 @@ local on_attach = function(client, bufnr)
   end
 end
 
--- Emmet configuration
-nvim_lsp.emmet_ls.setup {
+-- Php
+nvim_lsp.intelephense.setup {
   on_attach = on_attach,
-  cmd = { "emmet-ls", "--stdio" },
-  filetypes = { "css", "eruby", "html", "javascript", "javascriptreact", "less", "sass", "scss", "svelte", "pug",
-    "typescriptreact", "vue" },
-  init_options = {
-    html = {
-      options = {
-        -- For possible options, see: https://github.com/emmetio/emmet/blob/master/src/config.ts#L79-L267
-        ["bem.enabled"] = true,
-      },
-    },
-  }
+  cmd = { "intelephense", "--stdio" },
+  filetypes = { "php" },
 }
 
 -- TypeScript & JavaScript configuration
@@ -34,13 +25,6 @@ nvim_lsp.tsserver.setup {
   on_attach = on_attach,
   cmd = { "typescript-language-server", "--stdio" },
   filetypes = { "javascript", "javscriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" }
-}
-
--- Php intelephense configuration
-nvim_lsp.intelephense.setup {
-  on_attach = on_attach,
-  cmd = { "intelephense", "--stdio" },
-  filetypes = { "php" }
 }
 
 -- Lua configuration
