@@ -13,6 +13,13 @@ local on_attach = function(client, bufnr)
   end
 end
 
+-- Clangd
+nvim_lsp.clangd.setup {
+  on_attach = on_attach,
+  cmd = { "clangd" },
+  filetypes = { "c", "cpp", "objc", "objcpp", "cuda", "proto" },
+}
+
 -- Dartls
 nvim_lsp.dartls.setup {
   on_attach = on_attach,
