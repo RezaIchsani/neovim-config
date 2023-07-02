@@ -23,6 +23,9 @@ return require('packer').startup(function(use)
   use 'akinsho/bufferline.nvim'
   use 'norcalli/nvim-colorizer.lua'
 
+  -- Indentline
+  use 'lukas-reineke/indent-blankline.nvim'
+
   -- LSP
   use 'neovim/nvim-lspconfig'
   -- Lspsaga
